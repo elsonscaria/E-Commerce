@@ -3,6 +3,7 @@ package com.els.ecommerce.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,24 +31,24 @@ public class UserController {
 		return "Success";
 	}
 
-	@PostMapping("/register")
+	@PostMapping("/user/register")
 	public Users registerUser(@RequestBody UsersDto userDto) {
 		return usersService.registerUser(userDto);
 	}
 
-	@GetMapping("/{userId}")
+	@GetMapping("/user/{userId}")
 	public Users getUser(@PathVariable Long userId) {
 		return usersService.getUser(userId);
 	}
 	
-	@GetMapping("/all")
+	@GetMapping("/user/all")
 	public List<Users> getAllUsers() {
 		return usersService.getAllUsers();
 	}
 
-	@GetMapping("/byname")
+	@GetMapping("/user/login")
 	public Users getUserByName(@RequestParam String userName, @RequestParam String password) {
-		emailService.sendMail("345@gmail.com","Test Mail","Hi, this is the test body");
+		emailService.sendMail("345@gmail.com","Test Mail","Hi, you have logged in");
 		return usersService.getUserByName(userName, password);
 	}
 
