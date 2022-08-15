@@ -1,7 +1,6 @@
 package com.els.ecommerce.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,22 +26,21 @@ public class ProductsController {
 	}
 
 	// Displaying products
-	@GetMapping("/product/read/{productsId}")
-	public Products getProducts(@PathVariable Long productsId) {
-		return productsService.getProducts(productsId);
+	@GetMapping("/product/read/{productId}")
+	public Products getProducts(@PathVariable Long productId) {
+		return productsService.getProducts(productId);
 	}
 
 	// updating products
-	/*
-	 * @PostMapping("/product/update/{userId}") public Products
-	 * updateProducts(@PathVariable Long userId, @RequestParam int ) { return
-	 * productsService.updateProducts(userId, ); }
-	 */
+	@PostMapping("/product/update/{productId}")
+	public Products updateProducts(@PathVariable Long productId, @RequestBody ProductsDto productsDto ) { 
+		return productsService.updateProducts(productId, productsDto); 
+	}
 
 	// deleting records
-	@DeleteMapping("/product/delete/{productsId}")
-	public String deleteproducts(@PathVariable Long productsId) {
-		productsService.deleteproducts(productsId);
+	@DeleteMapping("/product/delete/{productId}")
+	public String deleteproducts(@PathVariable Long productId) {
+		productsService.deleteproducts(productId);
 		return "Product Deleted";
 	}
 

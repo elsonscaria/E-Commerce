@@ -25,8 +25,8 @@ public class ProductsServiceImpl implements ProductsService{
 	}
 
 	@Override
-	public Products getProducts(Long productsId) {
-		Optional<Products> products = productsRepository.findById(productsId);
+	public Products getProducts(Long productId) {
+		Optional<Products> products = productsRepository.findById(productId);
 		if (products.isPresent()) {
 			return products.get();
 		}
@@ -34,9 +34,16 @@ public class ProductsServiceImpl implements ProductsService{
 	}
 
 	@Override
-	public void deleteproducts(Long productsId) {
-		productsRepository.deleteById(productsId);
+	public void deleteproducts(Long productId) {
+		productsRepository.deleteById(productId);
 		
+	}
+
+	@Override
+	public Products updateProducts(Long productId, ProductsDto productsDto) {
+		Products products = getProducts(productId);
+		BeanUtils.copyProperties(productsDto, products);
+		return productsRepository.save(products);
 	}
 	
 	

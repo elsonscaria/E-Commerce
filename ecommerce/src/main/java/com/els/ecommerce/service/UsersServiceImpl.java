@@ -11,7 +11,12 @@ import com.els.ecommerce.dto.UsersDto;
 import com.els.ecommerce.entity.Users;
 import com.els.ecommerce.repository.UsersRepository;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Service
+@Getter
+@Setter
 public class UsersServiceImpl implements UsersService {
 
 	@Autowired
