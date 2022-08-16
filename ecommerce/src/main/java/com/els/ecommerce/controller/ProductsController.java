@@ -20,25 +20,25 @@ public class ProductsController {
 	ProductsService productsService;
 
 	// Adding Products
-	@PostMapping("/product/add")
+	@PostMapping("/products/add")
 	public Products addProducts(@RequestBody ProductsDto productsDto) {
 		return productsService.addProducts(productsDto);
 	}
 
 	// Displaying products
-	@GetMapping("/product/read/{productId}")
+	@GetMapping("/products/read/{productId}")
 	public Products getProducts(@PathVariable Long productId) {
 		return productsService.getProducts(productId);
 	}
 
 	// updating products
-	@PostMapping("/product/update/{productId}")
+	@PostMapping("/products/update/{productId}")
 	public Products updateProducts(@PathVariable Long productId, @RequestBody ProductsDto productsDto ) { 
 		return productsService.updateProducts(productId, productsDto); 
 	}
 
 	// deleting records
-	@DeleteMapping("/product/delete/{productId}")
+	@DeleteMapping("/products/delete/{productId}")
 	public String deleteproducts(@PathVariable Long productId) {
 		productsService.deleteproducts(productId);
 		return "Product Deleted";

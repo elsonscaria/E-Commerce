@@ -30,24 +30,24 @@ public class UserController {
 		return "Success";
 	}
 
-	@PostMapping("/user/register")
+	@PostMapping("/users/register")
 	public Users registerUser(@RequestBody UsersDto userDto) {
 		return usersService.registerUser(userDto);
 	}
 
-	@GetMapping("/user/{userId}")
+	@GetMapping("/users/{userId}")
 	public Users getUser(@PathVariable Long userId) {
 		return usersService.getUser(userId);
 	}
 	
-	@GetMapping("/user/all")
+	@GetMapping("/users/all")
 	public List<Users> getAllUsers() {
 		return usersService.getAllUsers();
 	}
 
-	@GetMapping("/user/login")
+	@GetMapping("/users/login")
 	public Users getUserByName(@RequestParam String userName, @RequestParam String password) {
-		emailService.sendMail("345@gmail.com","Test Mail","Hi, you have logged in");
+		//emailService.sendMail("345@gmail.com","Test Mail","Hi, you have logged in");
 		return usersService.getUserByName(userName, password);
 	}
 

@@ -44,7 +44,9 @@ public class UsersServiceImpl implements UsersService {
 
 	@Override
 	public Users getUserByName(String userName, String password) {
-		return usersRepository.findByUserNameAndPassword(userName, password);
+		Users user = usersRepository.findByUserNameAndPassword(userName, password);
+		emailService.sendMail(user.getEmail(),"Login Alert","Hi, you have logged in");
+		return user;
 	}
 
 	@Override
