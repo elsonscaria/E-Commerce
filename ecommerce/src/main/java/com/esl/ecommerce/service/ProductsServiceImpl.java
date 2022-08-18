@@ -49,15 +49,6 @@ public class ProductsServiceImpl implements ProductsService {
 		return productsRepository.save(product);
 	}
 
-	/*
-	@Override
-	public Products updateProducts(Long productId, ProductsDto productsDto) {
-		Products products = productsRepository.getProducts(productId);
-		
-		BeanUtils.copyProperties(productsDto, products);
-		return productsRepository.save(products);
-	}
-	*/
 
 
 	@Override

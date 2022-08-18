@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.esl.ecommerce.dto.ProductsDto;
 import com.esl.ecommerce.entity.Products;
-import com.esl.ecommerce.entity.Users;
 import com.esl.ecommerce.service.ProductsService;
 
 @RestController
@@ -39,7 +38,7 @@ public class ProductsController {
 		return productsService.updateProducts(productId, productsDto); 
 	}
 
-	// deleting records
+	// deleting products
 	@DeleteMapping("/products/delete/{productId}")
 	public String deleteproducts(@PathVariable Long productId) {
 		productsService.deleteproducts(productId);
