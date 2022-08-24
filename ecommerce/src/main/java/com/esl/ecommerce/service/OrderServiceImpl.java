@@ -130,4 +130,19 @@ public class OrderServiceImpl implements OrderService{
 		return "success";
 	}
 
+
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Map<Products, Integer> getCart(HttpSession session) {
+		Map<Products,Integer> cart;
+		Map<Long,Integer> rawCart;
+		// Check if session even has cart
+		if ((rawCart = (Map<Long, Integer>) session.getAttribute("cart") == null)
+			return null;
+		if ((cart = rawCartToFull(rawCart)) == null)
+			return null;
+		return cart;
+	}
+
 }
