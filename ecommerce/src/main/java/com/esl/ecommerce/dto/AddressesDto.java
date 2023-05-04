@@ -18,5 +18,13 @@ public class AddressesDto {
 		private String country;
 		
 		private String zipcode;
+
+		public Object getMailingAddress() {
+			this.street=street;
+			this.unit;
+			this.city;
+			this.state;
+			this.country;
+			this.zipcode;
 		
 }
